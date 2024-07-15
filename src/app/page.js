@@ -1,4 +1,4 @@
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./admin/components/Sidebar";
 
 export default function Home() {
   return (

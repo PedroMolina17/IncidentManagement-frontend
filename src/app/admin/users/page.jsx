@@ -1,5 +1,3 @@
-import AdminLayout from "../layout";
-
 const Users = () => {
   return (
     <div>
@@ -7,7 +5,5 @@ const Users = () => {
     </div>
   );
 };
-
-Users.getLayout = (page) => <AdminLayout>{page}</AdminLayout>;
 
 export default Users;

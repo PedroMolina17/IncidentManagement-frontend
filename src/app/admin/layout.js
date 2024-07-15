@@ -1,10 +1,11 @@
-import Sidebar from "../components/Sidebar";
-
+import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 const AdminLayout = ({ children }) => {
   return (
     <div className="flex">
       <Sidebar />
-      <main className="flex-1 ml-96 p-4">{children}</main>
+      <Navbar />
+      <main className="flex-1 ml-96 pt-20 p-4 text-white">{children}</main>
     </div>
   );
 };
