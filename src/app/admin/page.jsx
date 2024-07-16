@@ -1,5 +1,8 @@
 "use client";
 import { useGetCountUsers } from "../hooks/useUsers";
+import CardsHome from "./components/CardsHome";
+import { RiAdminFill } from "react-icons/ri";
+import { FaUser } from "react-icons/fa";
 
 const Admin = () => {
   const {
@@ -21,53 +24,35 @@ const Admin = () => {
   } = useGetCountUsers();
 
   return (
-    <div>
-      <h1>Admin Dashboard Home</h1>
-
-      <section>
-        <h2>Data User Admins</h2>
-        {isLoadingDataUserAdmins ? (
-          <p>Cargando...</p>
-        ) : isErrorDataUserAdmins ? (
-          <p>Error al cargar los datos de admins.</p>
-        ) : DataUserAdmins ? (
-          <div>
-            <p>Total de admins: {DataUserAdmins}</p>
-          </div>
-        ) : (
-          <p>No se encontraron datos de admins.</p>
-        )}
-      </section>
-
-      <section>
-        <h2>Data User Role</h2>
-        {isLoadingDataUsersRole ? (
-          <p>Cargando...</p>
-        ) : isErrorDataUsersRole ? (
-          <p>Error al cargar los datos de roles.</p>
-        ) : DataUserRole ? (
-          <div>
-            <p>Total de roles: {DataUserRole}</p>
-          </div>
-        ) : (
-          <p>No se encontraron datos de roles.</p>
-        )}
-      </section>
-
-      <section>
-        <h2>Data Users</h2>
-        {isLoadingDataUsers ? (
-          <p>Cargando...</p>
-        ) : isErrorDataUsers ? (
-          <p>Error al cargar los datos de usuarios.</p>
-        ) : DataUser ? (
-          <div>
-            <p>Total de usuarios: {DataUser}</p>
-          </div>
-        ) : (
-          <p>No se encontraron datos de usuarios.</p>
-        )}
-      </section>
+    <div className="grid grid-cols-4 gap-2 rounded-md">
+      <CardsHome
+        title={"Admins"}
+        color={"from-[#4e42d3] to-[#6456f9]"}
+        subtotal={DataUserAdmins}
+        total={DataUser}
+        image={<RiAdminFill />}
+      />
+      <CardsHome
+        title={"Users"}
+        color={"from-[#4296f2] to-[#5d94ff]"}
+        subtotal={DataUserRole}
+        total={DataUser}
+        image={<FaUser />}
+      />
+      <CardsHome
+        title={"Admins"}
+        color={"from-[#920afe] to-[#af4bfe]"}
+        subtotal={DataUserAdmins}
+        total={DataUser}
+        image={<RiAdminFill />}
+      />
+      <CardsHome
+        title={"Admins"}
+        color={"from-[#c731e7] to-[#e56efd]"}
+        subtotal={DataUserRole}
+        total={DataUser}
+        image={<RiAdminFill />}
+      />
     </div>
   );
 };

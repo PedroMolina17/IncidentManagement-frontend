@@ -4,8 +4,7 @@ import { getCountUsers } from "../services/users";
 const useGetCountUsers = (id) => {
   return useQuery({
     queryKey: ["users", id],
-    queryFn: () => (id ? getCountUsers(id) : Promise.resolve(null)),
-    enabled: !!id,
+    queryFn: () => getCountUsers(id),
   });
 };
 

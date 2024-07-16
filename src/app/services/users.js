@@ -1,7 +1,7 @@
 import axiosInstance from "../config/api";
 
 export const getCountUsers = async (id) => {
-  const res = await axiosInstance.get(`/users/count?type_user_id=${id}`);
-  console.log(res.data);
+  const endpoint = id ? `/users/count?type_user_id=${id}` : `/users/count`;
+  const res = await axiosInstance.get(endpoint);
   return res.data;
 };

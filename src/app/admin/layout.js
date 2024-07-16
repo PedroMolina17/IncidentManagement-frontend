@@ -5,7 +5,7 @@ const AdminLayout = ({ children }) => {
     <div className="flex">
       <Sidebar />
       <Navbar />
-      <main className="flex-1 ml-96 pt-20 p-4 text-white">{children}</main>
+      <main className="flex-1 ml-96 pt-24 p-4 text-white">{children}</main>
     </div>
   );
 };
