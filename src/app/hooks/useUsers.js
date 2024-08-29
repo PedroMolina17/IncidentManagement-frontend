@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCountUsers } from "../services/users";
+import { getCountUsers, getAllUsers } from "../services/users";
 
 const useGetCountUsers = (id) => {
   return useQuery({
@@ -8,4 +8,11 @@ const useGetCountUsers = (id) => {
   });
 };
 
-export { useGetCountUsers };
+const useGetAllUsers = () => {
+  return useQuery({
+    queryKey: ["users"],
+    queryFn: () => getAllUsers(),
+  });
+};
+
+export { useGetCountUsers, useGetAllUsers };

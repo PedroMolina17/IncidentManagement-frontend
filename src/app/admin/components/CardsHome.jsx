@@ -4,7 +4,7 @@ const CardsHome = ({ color, title, image, total, subtotal }) => {
   const percentage = total > 0 ? ((subtotal / total) * 100).toFixed(0) : 0;
   return (
     <div
-      className={`rounded-md bg-gradient-to-l ${color} flex flex-col gap-2 px-3 py-5 `}
+      className={`rounded-lg bg-gradient-to-l ${color} flex flex-col gap-3 px-3 py-5 `}
     >
       <div className="flex items-center gap-2">
         <div className="flex justify-center items-center w-7 h-7 rounded-full bg-[#ffffff83] ">
