@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import { getCountUsers, getAllUsers } from "../services/users";
+import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
+import { getCountUsers, getAllUsers, deleteUsers } from "../services/users";
 
 const useGetCountUsers = (id) => {
   return useQuery({
@@ -15,4 +15,14 @@ const useGetAllUsers = () => {
   });
 };
 
-export { useGetCountUsers, useGetAllUsers };
+const useDeleteUsers = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id) => deleteUsers(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries("users");
+    },
+  });
+};
+
+export { useGetCountUsers, useGetAllUsers, useDeleteUsers };

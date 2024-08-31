@@ -15,3 +15,8 @@ export const getAllUsers = async () => {
   const res = await axiosInstance.get("/users");
   return res.data;
 };
+
+export const deleteUsers = async (id) => {
+  const res = await axiosInstance.delete(`/users/${id}`);
+  return res.data;
+};
