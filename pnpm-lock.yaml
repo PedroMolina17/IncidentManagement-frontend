@@ -23,6 +23,9 @@ dependencies:
   react-icons:
     specifier: ^5.2.1
     version: 5.2.1(react@18.3.1)
+  sweetalert2:
+    specifier: ^11.12.4
+    version: 11.12.4
 
 devDependencies:
   '@types/node':
@@ -2712,6 +2715,10 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /sweetalert2@11.12.4:
+    resolution: {integrity: sha512-ZSpyaLbAmn4b7xjnV9x9BFD1UOrCAhIzm1D8dZ443kGxtVKqbTIA5SgXs4xeEtmFfEXUyC3RBgpSlu1AXmCiHA==}
+    dev: false
 
   /tailwindcss@3.4.4:
     resolution: {integrity: sha512-ZoyXOdJjISB7/BcLTR6SEsLgKtDStYyYZVLsUtWChO4Ps20CBad7lfJKVDiejocV4ME1hLmyY0WJE3hSDcmQ2A==}

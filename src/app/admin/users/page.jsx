@@ -1,8 +1,10 @@
 "use client";
+import { useEffect } from "react";
 import { useGetAllUsers, useDeleteUsers } from "../../hooks/useUsers";
 import { MdEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-
+import Swal from "sweetalert2";
+import CreateButton from "../components/CreateButton";
 const Users = () => {
   const { data: users, isLoading: isLoadingDataUsers } = useGetAllUsers();
   const deleteUsers = useDeleteUsers();
@@ -11,13 +13,31 @@ const Users = () => {
     console.log(`Editing user with ID: ${userId}`);
   };
 
+  useEffect(() => {
+    users && console.log(users);
+  });
   const handleDelete = (userId) => {
-    deleteUsers.mutate(userId);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteUsers.mutate(userId);
+      }
+    });
   };
 
   return (
     <div className="container mx-auto px-4 py-6">
-      <h1 className="text-2xl font-bold mb-4">Users Page</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold mb-4">Users Page</h1>
+        <CreateButton route={"create"} />
+      </div>
       {isLoadingDataUsers ? (
         <p className="text-center text-lg">Loading...</p>
       ) : (
@@ -51,8 +71,8 @@ const Users = () => {
                   >
                     <td className="py-3 px-4">{user.username}</td>
                     <td className="py-3 px-4">{user.email}</td>
-                    <td className="py-3 px-4">{user.type_user_id}</td>
-                    <td className="py-3 px-4">{user.room_id}</td>
+                    <td className="py-3 px-4">{user.typeusers.description}</td>
+                    <td className="py-3 px-4">{user.room.name}</td>
                     <td className="py-3 px-4">
                       <button
                         onClick={() => handleEdit(user.user_id)}

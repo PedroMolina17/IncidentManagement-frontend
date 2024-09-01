@@ -20,3 +20,8 @@ export const deleteUsers = async (id) => {
   const res = await axiosInstance.delete(`/users/${id}`);
   return res.data;
 };
+
+export const updateUsers = async (id, data) => {
+  const res = await axiosInstance.put(`/users/${id}`, data);
+  return res.data;
+};
