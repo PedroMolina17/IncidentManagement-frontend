@@ -23,10 +23,10 @@ const Sidebar = () => {
       label: "Users",
     },
     {
-      href: "/admin/reports",
+      href: "/admin/incidents",
       icon: HiOutlineDocumentReport,
       icon2: BiSolidReport,
-      label: "Reports",
+      label: "Incidents",
     },
     {
       href: "/admin/a",

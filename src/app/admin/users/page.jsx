@@ -36,7 +36,7 @@ const Users = () => {
     <div className="container mx-auto px-4 py-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold mb-4">Users Page</h1>
-        <CreateButton route={"create"} />
+        <CreateButton href={"/admin/users/create"} />
       </div>
       {isLoadingDataUsers ? (
         <p className="text-center text-lg">Loading...</p>
