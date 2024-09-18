@@ -43,5 +43,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/user/:path*", "/"], // Proteger todas las rutas
+  matcher: ["/admin/:path*", "/user/:path*", "/"],
 };
