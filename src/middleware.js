@@ -3,10 +3,16 @@ import { jwtDecode } from "jwt-decode";
 
 export async function middleware(request) {
   const token = request.cookies.get("token");
+  console.log(request.nextUrl.pathname);
 
   if (!token) {
-    if (["/admin", "/user"].includes(request.nextUrl.pathname)) {
-      return NextResponse.redirect(new URL("/", request.url));
+    if (!token) {
+      if (
+        request.nextUrl.pathname.startsWith("/admin") ||
+        request.nextUrl.pathname.startsWith("/user")
+      ) {
+        return NextResponse.redirect(new URL("/", request.url));
+      }
     }
   } else {
     try {
@@ -41,7 +47,6 @@ export async function middleware(request) {
 
   return NextResponse.next();
 }
-
 export const config = {
   matcher: ["/admin/:path*", "/user/:path*", "/"],
 };
